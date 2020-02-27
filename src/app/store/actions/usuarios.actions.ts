@@ -7,7 +7,7 @@ export const CARGAR_USUARIOS = '[Usuarios] Cargar usuarios';
 export const CARGAR_USUARIOS_FAIL = '[Usuarios] Cargar usuarios Fail';
 export const CARGAR_USUARIOS_SUCCESS = '[Usuarios] Cargar usuarios Success';
 
-// ToDO: 2. Cleacion de las clases que permitan crear acciones
+// ToDo: 2. Cleacion de las clases que permitan crear acciones
 export class CargarUsuarios implements Action {
   readonly type = CARGAR_USUARIOS;
 }
