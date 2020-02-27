@@ -5,6 +5,7 @@ import {Store} from '@ngrx/store';
 import {AppState} from '../../store/app.reducer';
 
 import * as usuariosActions from '../../store/actions';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -15,6 +16,9 @@ import * as usuariosActions from '../../store/actions';
 export class ListaComponent implements OnInit {
 
   usuarios: UsuarioModel[] = [];
+  loading: boolean;
+  error: any;
+  subscription: Subscription = new Subscription();
 
   constructor(
     //private usuarioService: UsuarioService ToDo: Nota: Se comneta esta linea porque con Redux no se ustiliza el servicio en este punto
@@ -29,6 +33,12 @@ export class ListaComponent implements OnInit {
 
     this.store.dispatch(new usuariosActions.CargarUsuarios());
 
+    this.subscription = this.store.select('usuarios')
+      .subscribe( data => {
+        this.usuarios = data.users;
+        this.loading = data.loading;
+        this.error = data.error;
+      } );
 
   }
 

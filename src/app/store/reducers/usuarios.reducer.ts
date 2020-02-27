@@ -27,7 +27,8 @@ export function usuariosReducer( state = InitState, actions: fromUsuarios.usuari
     case fromUsuarios.CARGAR_USUARIOS:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       };
 
     case fromUsuarios.CARGAR_USUARIOS_SUCCESS:
