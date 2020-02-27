@@ -43,7 +43,12 @@ export function usuariosReducer( state = InitState, actions: fromUsuarios.usuari
         ...state,
         loaded: false,
         loading: false,
-        error: actions.payload // Se recibe el objeto del error completo
+        // error: actions.payload // Se recibe el objeto del error completo que tiene mucha informacion y se cambia por la siguiente linea
+        error: {
+          status: actions.payload.status,
+          message: actions.payload.message,
+          url: actions.payload.url
+        }
       };
 
 
