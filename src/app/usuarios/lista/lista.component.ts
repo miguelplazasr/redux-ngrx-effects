@@ -12,11 +12,12 @@ export class ListaComponent implements OnInit {
   usuarios: UsuarioModel[] = [];
 
   constructor(
-    private usuarioService: UsuarioService
+    //private usuarioService: UsuarioService ToDo: Nota: Se comneta esta linea porque con Redux no se ustiliza el servicio en este punto
   ) { }
 
   ngOnInit() {
-    this.usuarioService.getUsers().subscribe( (data: UsuarioModel[]) => this.usuarios = data);
+    // ToDo: Nota: Se comneta esta linea porque con Redux no se ustiliza el servicio en este punto
+    //this.usuarioService.getUsers().subscribe( (data: UsuarioModel[]) => this.usuarios = data);
   }
 
 }
